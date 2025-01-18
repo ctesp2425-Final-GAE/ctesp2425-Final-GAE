@@ -34,7 +34,7 @@ Aqui está uma lista de tarefas divididas para o projeto de acordo com os requis
 
 4. **Base de Dados** - Mariana
    - Criar a estrutura inicial da tabela conforme o modelo fornecido.
-   - Configurar o SQL Server utilizando o **Vagrant**. 
+   - Configurar o SQL Server utilizando o **Vagrant**. (Apenas vagrant file)
 
 5. **Swagger** - Camila
    - Documentar todos os endpoints no Swagger para testes e visualização.
@@ -87,4 +87,7 @@ Essas tarefas podem ser atribuídas entre os membros do grupo, garantindo que to
 
 ---
 
-## Funcionaliadades
+## Funcionaliadades e Documentação
+
+### 18/01/2025 - Guilherme
+Associação de projetos a solução, criação de pastas.
