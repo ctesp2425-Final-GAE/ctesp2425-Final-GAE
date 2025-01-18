@@ -91,3 +91,5 @@ Essas tarefas podem ser atribuídas entre os membros do grupo, garantindo que to
 
 ### 18/01/2025 - Guilherme
 Associação de projetos a solução, criação de pastas.
+
+#### Docker configração
