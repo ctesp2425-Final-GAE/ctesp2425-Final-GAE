@@ -96,3 +96,12 @@ Configuração do Docker com Dockerfile e docker-compose para dar start a BD.
 #### Docker configração
 Rodar docker compose para gerar os serviços necessarios: 
 `docker-compose -p restaurant-api up --build -d`
+
+
+### 19/01/2025 - Guilherme
+Introduzido 2 models: Table (Mesas) e Reservation (Reservas) e criado os respetivos controllers. 
+
+Neste passo foi introduzido as migrações para a base de dados e a conection string guardada dentro dum .env para segurança da aplicação.
+
+#### GetAllReservations
+Endpoint que permite ir buscar todas as reservas à base de dados.
