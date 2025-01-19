@@ -15,19 +15,19 @@ services:
     volumes:
       - sql_data:/var/opt/mssql
 
-  # restaurant-api:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   container_name: restaurant-api
-  #   environment:
-  #       - DefaultConnection=Server=mssql;Database=RestaurantReservations;User Id=sa;Password=yourStrong(!)Password;
-  #   ports:
-  #     - "8050:8080"
-  #   depends_on:
-  #     - mssql
-  #   networks:
-  #     - bridgeRestaurant
+  restaurant-api:
+    build:
+      context: ..
+      dockerfile: Docker/Dockerfile
+    container_name: restaurant-api
+    environment:
+        - DefaultConnection=Server=mssql;Database=RestaurantReservations;User Id=sa;Password=yourStrong(!)Password;
+    ports:
+      - "8050:8080"
+    depends_on:
+      - mssql
+    networks:
+      - bridgeRestaurant
 
   postgres:
     image: postgres:14

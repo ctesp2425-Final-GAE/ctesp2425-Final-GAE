@@ -91,5 +91,8 @@ Essas tarefas podem ser atribuídas entre os membros do grupo, garantindo que to
 
 ### 18/01/2025 - Guilherme
 Associação de projetos a solução, criação de pastas.
+Configuração do Docker com Dockerfile e docker-compose para dar start a BD.
 
 #### Docker configração
+Rodar docker compose para gerar os serviços necessarios: 
+`docker-compose -p restaurant-api up --build -d`
