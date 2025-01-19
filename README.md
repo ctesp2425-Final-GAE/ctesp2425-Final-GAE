@@ -5,7 +5,7 @@ Aqui está uma lista de tarefas divididas para o projeto de acordo com os requis
 
 ### **Planejamento Inicial**
 
-1. **Configuração do Repositório** - Guilherme
+1. **Configuração do Repositório** - Guilherme **FEITO**
 
    - Criar um repositório no GitHub com o nome no formato especificado.
    - Configurar os branches `master` e `develop`.
@@ -23,7 +23,7 @@ Aqui está uma lista de tarefas divididas para o projeto de acordo com os requis
 3. **Implementação da API REST**
 
    - Criar endpoints:
-     - **GET** `/reservations` - Guilherme
+     - **GET** `/reservations` - Guilherme **FEITO**
      - **GET** `/reservations/{id}` - Mariana
      - **POST** `/reservations` - Eduardo
      - **PUT** `/reservations/{id}` - Camila
@@ -41,10 +41,10 @@ Aqui está uma lista de tarefas divididas para o projeto de acordo com os requis
 
 
 ### **Virtualização e Containerização**
-6. **Configuração do Ambiente** - Guilherme
-   - Criar um **Dockerfile** para a API. - Guilherme
+6. **Configuração do Ambiente** - Guilherme **FEITO**
+   - Criar um **Dockerfile** para a API. - Guilherme **FEITO**
    - Configurar comunicação entre API e banco de dados:
-     - Via container Docker. - Guilherme
+     - Via container Docker. - Guilherme **FEITO**
 
 
 ### **Testes e Garantia de Qualidade**
@@ -55,7 +55,7 @@ Aqui está uma lista de tarefas divididas para o projeto de acordo com os requis
      - Operações de listagem e atualização.
    - Cobrir pelo menos 80% do código.
 
-8. **Qualidade do Código** - Guilherme
+8. **Qualidade do Código** - Guilherme **EM PROCESSO**
    - Integrar e configurar **SonarQube** para análise de qualidade.
 
 
