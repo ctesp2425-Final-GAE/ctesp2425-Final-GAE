@@ -105,3 +105,15 @@ Neste passo foi introduzido as migrações para a base de dados e a conection st
 
 #### GetAllReservations
 Endpoint que permite ir buscar todas as reservas à base de dados.
+
+#### Criar migrações
+**Criar ficheiro .env atraves do .env.example**.
+
+*Criar Migrações*:
+``dotnet ef migrations add initalMigrate``
+
+*Gerar BD*:
+``dotnet ef database update``
+
+*Testar API*:
+``dotnet run``
