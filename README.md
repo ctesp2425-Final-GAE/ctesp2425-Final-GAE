@@ -24,10 +24,10 @@ Aqui está uma lista de tarefas divididas para o projeto de acordo com os requis
 
    - Criar endpoints:
      - **GET** `/reservations` - Guilherme **FEITO**
-     - **GET** `/reservations/{id}` - Mariana
+     - **GET** `/reservations/{id}` - Mariana **FEITO**
      - **POST** `/reservations` - Eduardo
      - **PUT** `/reservations/{id}` - Camila
-     - **DELETE** `/reservations/{id}` - Mariana
+     - **DELETE** `/reservations/{id}` - Mariana **FEITO**
      - **GET** `/reservations?date={date}` - Camila
    - Garantir validações:
      - Verificação de conflitos de horários para reservas.

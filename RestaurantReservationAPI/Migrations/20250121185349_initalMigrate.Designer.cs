@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace RestaurantReservationAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250119162133_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250121185349_initalMigrate")]
+    partial class initalMigrate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
