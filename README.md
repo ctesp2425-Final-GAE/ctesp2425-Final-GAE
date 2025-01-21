@@ -24,15 +24,15 @@ Aqui está uma lista de tarefas divididas para o projeto de acordo com os requis
 
    - Criar endpoints:
      - **GET** `/reservations` - Guilherme **FEITO**
-     - **GET** `/reservations/{id}` - Mariana
+     - **GET** `/reservations/{id}` - Mariana **FEITO**
      - **POST** `/reservations` - Eduardo
      - **PUT** `/reservations/{id}` - Camila
-     - **DELETE** `/reservations/{id}` - Mariana
+     - **DELETE** `/reservations/{id}` - Mariana **FEITO**
      - **GET** `/reservations?date={date}` - Camila
    - Garantir validações:
      - Verificação de conflitos de horários para reservas.
 
-4. **Base de Dados** - Mariana
+4. **Base de Dados** - Mariana **FEITO**
    - Criar a estrutura inicial da tabela conforme o modelo fornecido.
    - Configurar o SQL Server utilizando o **Vagrant**. (Apenas vagrant file)
 
@@ -117,3 +117,97 @@ Endpoint que permite ir buscar todas as reservas à base de dados.
 
 *Testar API*:
 ``dotnet run``
+
+
+
+### /01/2025 - Mariana
+
+## Endpoints Disponíveis
+
+### **GET** `/api/reservations/{id}`
+
+Obtém os detalhes de uma reserva específica pelo ID.
+
+- **Método**: `GET`
+- **Rota**: `/api/reservations/{id}`
+
+#### **Descrição**
+Este endpoint retorna os detalhes de uma reserva com base no ID fornecido. Caso o ID não seja encontrado, será retornada uma mensagem de erro.
+
+#### **Exemplo de Requisição**
+```http
+GET /api/reservations/1
+```
+
+#### **Respostas**
+- **Sucesso** (`200 OK`):
+  ```json
+  {
+      "id": 1,
+      "customerName": "John Doe",
+      "reservationDate": "2025-01-21",
+      "reservationTime": "19:00:00",
+      "tableNumber": 5,
+      "numberOfPeople": 4,
+      "createdAt": "2025-01-20T15:30:00"
+  }
+  ```
+- **Erro** (`404 Not Found`):
+  ```json
+  {
+      "message": "Reservation not found"
+  }
+  ```
+
+---
+
+### **DELETE** `/api/reservations/{id}`
+
+Apaga uma reserva específica pelo ID.
+
+- **Método**: `DELETE`
+- **Rota**: `/api/reservations/{id}`
+
+#### **Descrição**
+Este endpoint permite eliminar uma reserva existente pelo ID fornecido. Caso o ID não exista, será retornada uma mensagem de erro.
+
+#### **Exemplo de Requisição**
+```http
+DELETE /api/reservations/1
+```
+
+#### **Respostas**
+- **Sucesso** (`200 OK`):
+  ```json
+  {
+      "message": "Reservation deleted successfully"
+  }
+  ```
+- **Erro** (`404 Not Found`):
+  ```json
+  {
+      "message": "Reservation not found"
+  }
+  ```
+
+---
+
+### Configuração do Vagrant
+
+#### **Vagrantfile**
+A configuração abaixo define o ambiente necessário para hospedar o banco de dados SQL Server:
+
+```ruby
+Vagrant.configure("2") do |config|
+    config.vm.box = "gusztavvargadr/sql-server"
+    config.vm.box_version = "2019.2102.2409"
+  
+    # Configuração de rede para permitir acesso externo ao SQL Server
+    config.vm.network "forwarded_port", guest: 1433, host: 1433, auto_correct: true
+  
+    # Configuração de memória RAM
+    config.vm.provider "virtualbox" do |vb|
+      vb.memory = "2048"
+    end
+end
+```
