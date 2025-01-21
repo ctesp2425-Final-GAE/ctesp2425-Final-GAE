@@ -24,5 +24,5 @@ public class ApplicationDbContext : DbContext
         }
     }
 
-    public DbSet<Reservation> Reservations { get; set; }
+    public virtual DbSet<Reservation> Reservations { get; set; }
 }
