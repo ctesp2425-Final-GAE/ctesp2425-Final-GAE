@@ -122,9 +122,9 @@ Endpoint que permite ir buscar todas as reservas à base de dados.
 
 ### /01/2025 - Mariana
 
-## Endpoints Disponíveis
+### Endpoints Disponíveis
 
-### **GET** `/api/reservations/{id}`
+#### **GET** `/api/reservations/{id}`
 
 Obtém os detalhes de uma reserva específica pelo ID.
 
@@ -210,4 +210,16 @@ Vagrant.configure("2") do |config|
       vb.memory = "2048"
     end
 end
+```
+
+
+### 23/01/2025 - Guilherme
+Sonarquebe e test coverge:
+
+#### Codigo executado:
+```bash
+dotnet sonarscanner begin /k:"dsos" /d:sonar.host.url="http://localhost:9001"  /d:sonar.token="sqp_4fead643e4ca5a7a6d61bef0e6934428e2d25321" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
+dotnet build --no-incremental
+dotnet-coverage collect 'dotnet test' -f xml  -o 'coverage.xml'
+dotnet sonarscanner end /d:sonar.login="sqp_4fead643e4ca5a7a6d61bef0e6934428e2d25321"
 ```

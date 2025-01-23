@@ -11,11 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace RestaurantReservationAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-<<<<<<<< HEAD:RestaurantReservationAPI/Migrations/20250121185740_initalMigrate.Designer.cs
-    [Migration("20250121185740_initalMigrate")]
-========
-    [Migration("20250121185349_initalMigrate")]
->>>>>>>> origin/dev:RestaurantReservationAPI/Migrations/20250121185349_initalMigrate.Designer.cs
+    [Migration("20250121205118_initalMigrate")]
     partial class initalMigrate
     {
         /// <inheritdoc />
