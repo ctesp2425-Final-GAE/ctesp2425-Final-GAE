@@ -117,3 +117,9 @@ Endpoint que permite ir buscar todas as reservas à base de dados.
 
 *Testar API*:
 ``dotnet run``
+
+### 21/01/2025 - Camila
+
+Desenvolvi dois endpoints, o UpdateReservations e GetReservationsByDate. Porém ainda não foi testado.
+
+
