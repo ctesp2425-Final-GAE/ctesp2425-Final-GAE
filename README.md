@@ -25,7 +25,7 @@ Aqui está uma lista de tarefas divididas para o projeto de acordo com os requis
    - Criar endpoints:
      - **GET** `/reservations` - Guilherme **FEITO**
      - **GET** `/reservations/{id}` - Mariana **FEITO**
-     - **POST** `/reservations` - Eduardo
+     - **POST** `/reservations` - Eduardo **FEITO**
      - **PUT** `/reservations/{id}` - Camila
      - **DELETE** `/reservations/{id}` - Mariana **FEITO**
      - **GET** `/reservations?date={date}` - Camila
@@ -119,6 +119,47 @@ Endpoint que permite ir buscar todas as reservas à base de dados.
 ``dotnet run``
 
 
+
+### /01/2025 - Eduardo
+
+## Endpoints Disponíveis
+
+### **POST** `/api/reservations`
+
+Cria uma nova reserva no sistema.
+
+- **Método**: POST
+- **Rota**: /api/reservations
+
+#### **Descrição**
+Este endpoint permite criar uma nova reserva fornecendo informações como nome do cliente, data, hora, número de pessoas e número da mesa.
+
+#### **Exemplo de Requisição**
+```http
+POST /api/reservations  
+```
+ 
+#### **Respostas**
+**Sucesso** (`201 Created`):
+```json
+{
+	"id": 1,
+	"customerName": "John Doe",
+	"reservationDate": "2025-01-24T00:00:00",
+	"reservationTime": "19:00:00",
+	"tableNumber": 5,
+	"numberOfPeople": 4,
+	"createdAt": "0001-01-01T00:00:00"
+}
+  ```
+**Erro** (`400 Bad Request`):
+```json
+{  
+    "message": "Invalid reservation data"  
+}  
+```
+
+---
 
 ### /01/2025 - Mariana
 
