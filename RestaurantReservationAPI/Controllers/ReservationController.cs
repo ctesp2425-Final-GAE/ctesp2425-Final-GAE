@@ -21,7 +21,7 @@ namespace RestaurantReservationAPI.Controllers
             return Ok(_context.Reservations.ToArray());
         }
 
-        // GET: api/reservations/{id}
+        // GET: api/reservation/{id}
         [HttpGet("{id}")]
         public IActionResult GetReservationById(int id)
         {
@@ -35,7 +35,26 @@ namespace RestaurantReservationAPI.Controllers
             return Ok(reservation);
         }
 
-        // DELETE: api/reservations/{id}
+        // POST: api/reservation
+        [HttpPost]
+        public IActionResult CreateReservation([FromBody] Reservation newReservation)
+        {
+            // Validar os dados recebidos
+            if (newReservation == null || string.IsNullOrWhiteSpace(newReservation.CustomerName) 
+                || newReservation.ReservationDate == default || newReservation.ReservationTime == default
+                || newReservation.TableNumber <= 0 || newReservation.NumberOfPeople <= 0)
+            {
+                return BadRequest(new { Message = "Invalid reservation data" });
+            }
+
+            // Adicionar a nova reserva à base de dados
+            _context.Reservations.Add(newReservation);
+            _context.SaveChanges();
+
+            return CreatedAtAction(nameof(GetReservationById), new { id = newReservation.Id }, newReservation);
+        }
+
+        // DELETE: api/reservation/{id}
         [HttpDelete("{id}")]
         public IActionResult DeleteReservation(int id)
         {
