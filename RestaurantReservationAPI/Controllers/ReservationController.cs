@@ -16,9 +16,22 @@ namespace RestaurantReservationAPI.Controllers
 
         // GET: api/reservation
         [HttpGet]
-        public IActionResult GetReservations()
+        public IActionResult GetReservations(DateTime? date, string? customerName)
         {
-            return Ok(_context.Reservations.ToArray());
+            var reservations = _context.Reservations.AsQueryable();
+
+            if (date.HasValue)
+            {
+                reservations = reservations.Where(r => r.ReservationDate == date.Value.Date);
+            }
+
+            if (!string.IsNullOrEmpty(customerName))
+            {
+                reservations = reservations.Where(r => r.CustomerName.Contains(customerName));
+            }
+
+            return Ok(reservations.ToArray());
+
         }
 
         // PUT: api/reservation/{id}
@@ -41,21 +54,6 @@ namespace RestaurantReservationAPI.Controllers
             return Ok(reservation);
         }
 
-        // GET: api/reservations?date={date}
-        [HttpGet]
-        public IActionResult GetReservationsByDate([FromQuery] DateTime date)
-        {
-            var reservations = _context.Reservations
-                .Where(reservation => reservation.ReservationDate.Date == date.Date)
-                .ToList();
-
-            if (!reservations.Any())
-            {
-                return NotFound("No reservations found for the specified date.");
-            }
-
-            return Ok(reservations);
-        }
-
+    
     }
 }
