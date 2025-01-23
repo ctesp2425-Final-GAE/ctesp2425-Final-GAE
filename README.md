@@ -120,7 +120,7 @@ Endpoint que permite ir buscar todas as reservas à base de dados.
 
 
 
-### /01/2025 - Mariana
+### 20/01/2025 - Mariana
 
 ## Endpoints Disponíveis
 
@@ -210,4 +210,72 @@ Vagrant.configure("2") do |config|
       vb.memory = "2048"
     end
 end
+```
+
+
+### 20/01/2025 - Mariana
+
+## Pipeline Automatizado
+
+### **Jenkins**
+
+Foi implementado um pipeline automatizado utilizando Jenkins, com as seguintes funcionalidades:
+
+#### **Checkout do código**:
+- Recupera o código do repositório no GitHub.
+
+#### **Restaurar dependências**:
+- Instala as dependências do projeto utilizando o comando `dotnet restore`.
+
+#### **Build do projeto**:
+- Realiza a construção do projeto em modo Release.
+
+#### **Publicação da aplicação**:
+- Publica a aplicação em um diretório específico para deployment futuro.
+
+#### **Exemplo de Pipeline**
+
+```groovy
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Fazendo o checkout do código...'
+                git branch: 'master', url: 'https://github.com/ctesp2425-Final-GAE/ctesp2425-Final-GAE.git'
+            }
+        }
+
+        stage('Restore') {
+            steps {
+                echo 'Restaurando dependências do projeto...'
+                sh 'dotnet restore ./RestaurantReservationAPI/'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Construindo o projeto...'
+                sh 'dotnet build ./RestaurantReservationAPI/ --configuration Release'
+            }
+        }
+
+        stage('Publish') {
+            steps {
+                echo 'Publicando a aplicação...'
+                sh 'dotnet publish ./RestaurantReservationAPI/ --configuration Release --output ./RestaurantReservationAPI/publish'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline executado com sucesso!'
+        }
+        failure {
+            echo 'Falha durante a execução do pipeline.'
+        }
+    }
+}
 ```
