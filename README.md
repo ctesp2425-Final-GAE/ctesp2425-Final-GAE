@@ -235,7 +235,7 @@ DELETE /api/reservations/1
 ### Configuração do Vagrant
 
 #### **Vagrantfile**
-A configuração abaixo define o ambiente necessário para hospedar o banco de dados SQL Server:
+A configuração abaixo define o ambiente necessário para hospedar a base de dados SQL Server:
 
 ```ruby
 Vagrant.configure("2") do |config|
