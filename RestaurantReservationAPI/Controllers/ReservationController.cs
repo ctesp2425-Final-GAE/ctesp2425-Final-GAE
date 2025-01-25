@@ -16,9 +16,22 @@ namespace RestaurantReservationAPI.Controllers
 
         // GET: api/reservation
         [HttpGet]
-        public IActionResult GetReservations()
+        public IActionResult GetReservations(DateTime? date, string? customerName)
         {
-            return Ok(_context.Reservations.ToArray());
+            var reservations = _context.Reservations.AsQueryable();
+
+            if (date.HasValue)
+            {
+                reservations = reservations.Where(r => r.ReservationDate == date.Value.Date);
+            }
+
+            if (!string.IsNullOrEmpty(customerName))
+            {
+                reservations = reservations.Where(r => r.CustomerName.Contains(customerName));
+            }
+
+            return Ok(reservations.ToArray());
+
         }
 
         // GET: api/reservation/{id}
@@ -69,6 +82,26 @@ namespace RestaurantReservationAPI.Controllers
             _context.SaveChanges();
 
             return Ok(new { Message = "Reservation deleted successfully" });
+        }
+
+        // PUT: api/reservation/{id}
+        [HttpPut("{id}")]
+        public IActionResult UpdateReservation(int id, [FromBody] Reservation updatedReservation)
+        {
+            Reservation reservation = _context.Reservations.FirstOrDefault(res => res.Id == id);
+            if (reservation == null)
+            {
+                return NotFound();
+            }
+
+            reservation.CustomerName = updatedReservation.CustomerName;
+            reservation.ReservationDate = updatedReservation.ReservationDate;
+            reservation.ReservationTime = updatedReservation.ReservationTime;
+            reservation.TableNumber = updatedReservation.TableNumber;
+            reservation.NumberOfPeople = updatedReservation.NumberOfPeople;
+
+            _context.SaveChanges();
+            return Ok(reservation);
         }
     }
 }

@@ -118,7 +118,38 @@ Endpoint que permite ir buscar todas as reservas à base de dados.
 *Testar API*:
 ``dotnet run``
 
+### 21/01/2025 - Camila
 
+## UpdateReservations e GetReservationsByDate
+
+Desenvolvi dois endpoints, o UpdateReservations e GetReservationsByDate. Porém ainda não foi testado.
+
+## 23/01/2025 - Camila
+
+## Testes UpdateReservations e GetReservations(DateTime? date, string? customerName)
+
+Testei o UpdateReservations e ele funcionou perfeitamente.
+
+Fiz alteração no GetReservationsByDate, pois estava a me dar erro. O erro era pois eu tinha dois endpoints na mesma route. Sendo assim, para resolver isso, coloquei parametros no GetReservations(DateTime? date, string? customerName).
+Depois disso testei o endpoint e ele estava a funcionar.
+
+## Swagger
+
+Segui o link que o professor fornecer no slide da aula sobre o Swagger. (https://learn.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-8.0&tabs=visual-studio-code)
+
+Resumindo, fiz a instalação do package Swashbuckle.AspNetCore
+
+"dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 6.6.2"
+
+Depois no Program.cs adicionei as seguintes linhas de códigos
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
+Assim, o Swagger já estava a funcionar e já era possivel realizar os testes dos endpoints.
 
 ### 23/01/2025 - Eduardo
 
