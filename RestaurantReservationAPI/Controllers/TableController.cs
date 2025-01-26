@@ -10,7 +10,7 @@ namespace RestaurantReservationAPI.Controllers
     public class TableController : ControllerBase
     {
         // Lista estática de mesas (apenas em memória)
-        private static readonly List<Table> Tables = new List<Table>
+        public static readonly List<Table> Tables = new List<Table>
         {
             new Table { Id = 1, Name = "Table 1" },
             new Table { Id = 2, Name = "Table 2" },

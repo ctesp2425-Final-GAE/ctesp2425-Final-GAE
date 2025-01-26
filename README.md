@@ -154,3 +154,5 @@ Assim, o Swagger já estava a funcionar e já era possivel realizar os testes do
 ## 26/01/2025 - Camila
 
 Realizei algumas alterações no código GetReservations(DateTime? date, string? customerName), pois estava só a filtrar por data. Agora filtra por data e hora da reserva.
+
+Também fiz alterações no UpdateReservation. Coloquei validações para que não consigam editar para colocar uma mesa acima do tanto de mesas existentes. E validação para não conseguir editar para colocar uma mesa na mesma data e horario de outra reserva.
