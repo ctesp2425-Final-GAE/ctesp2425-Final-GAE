@@ -24,5 +24,12 @@ public class ApplicationDbContext : DbContext
         }
     }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Reservation>()
+            .Property(r => r.Id)
+            .ValueGeneratedOnAdd();
+    }
+
     public virtual DbSet<Reservation> Reservations { get; set; }
 }
