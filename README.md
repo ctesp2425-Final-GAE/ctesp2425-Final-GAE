@@ -55,11 +55,11 @@ Aqui está uma lista de tarefas divididas para o projeto de acordo com os requis
      - Operações de listagem e atualização.
    - Cobrir pelo menos 80% do código.
 
-8. **Qualidade do Código** - Guilherme **EM PROCESSO**
+8. **Qualidade do Código** - Guilherme **FEITO**
    - Integrar e configurar **SonarQube** para análise de qualidade.
 
 
-### **Pipeline Automatizado** - Mariana
+### **Pipeline Automatizado** - Mariana **FEITO**
 9. **Jenkins**
    - Configurar um pipeline para:
      - Build do código.
@@ -117,80 +117,6 @@ Endpoint que permite ir buscar todas as reservas à base de dados.
 
 *Testar API*:
 ``dotnet run``
-
-### 21/01/2025 - Camila
-
-## UpdateReservations e GetReservationsByDate
-
-Desenvolvi dois endpoints, o UpdateReservations e GetReservationsByDate. Porém ainda não foi testado.
-
-## 23/01/2025 - Camila
-
-## Testes UpdateReservations e GetReservations(DateTime? date, string? customerName)
-
-Testei o UpdateReservations e ele funcionou perfeitamente.
-
-Fiz alteração no GetReservationsByDate, pois estava a me dar erro. O erro era pois eu tinha dois endpoints na mesma route. Sendo assim, para resolver isso, coloquei parametros no GetReservations(DateTime? date, string? customerName).
-Depois disso testei o endpoint e ele estava a funcionar.
-
-## Swagger
-
-Segui o link que o professor fornecer no slide da aula sobre o Swagger. (https://learn.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-8.0&tabs=visual-studio-code)
-
-Resumindo, fiz a instalação do package Swashbuckle.AspNetCore
-
-"dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 6.6.2"
-
-Depois no Program.cs adicionei as seguintes linhas de códigos
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-app.UseSwagger();
-app.UseSwaggerUI();
-
-Assim, o Swagger já estava a funcionar e já era possivel realizar os testes dos endpoints.
-
-### 23/01/2025 - Eduardo
-
-## Endpoints Disponíveis
-
-### **POST** `/api/reservations`
-
-Cria uma nova reserva no sistema.
-
-- **Método**: POST
-- **Rota**: /api/reservations
-
-#### **Descrição**
-Este endpoint permite criar uma nova reserva fornecendo informações como nome do cliente, data, hora, número de pessoas e número da mesa.
-
-#### **Exemplo de Requisição**
-```http
-POST /api/reservations  
-```
- 
-#### **Respostas**
-**Sucesso** (`201 Created`):
-```json
-{
-	"id": 1,
-	"customerName": "John Doe",
-	"reservationDate": "2025-01-24T00:00:00",
-	"reservationTime": "19:00:00",
-	"tableNumber": 5,
-	"numberOfPeople": 4,
-	"createdAt": "0001-01-01T00:00:00"
-}
-  ```
-**Erro** (`400 Bad Request`):
-```json
-{  
-    "message": "Invalid reservation data"  
-}  
-```
-
----
 
 ### 20/01/2025 - Mariana
 
@@ -286,7 +212,7 @@ end
 
 ### 20/01/2025 - Mariana
 
-## Pipeline Automatizado
+### Pipeline Automatizado
 
 ### **Jenkins**
 
@@ -349,6 +275,78 @@ pipeline {
         }
     }
 }
+```
+
+### 21/01/2025 - Camila
+
+## UpdateReservations e GetReservationsByDate
+
+Desenvolvi dois endpoints, o UpdateReservations e GetReservationsByDate. Porém ainda não foi testado.
+
+## 23/01/2025 - Camila
+
+## Testes UpdateReservations e GetReservations(DateTime? date, string? customerName)
+
+Testei o UpdateReservations e ele funcionou perfeitamente.
+
+Fiz alteração no GetReservationsByDate, pois estava a me dar erro. O erro era pois eu tinha dois endpoints na mesma route. Sendo assim, para resolver isso, coloquei parametros no GetReservations(DateTime? date, string? customerName).
+Depois disso testei o endpoint e ele estava a funcionar.
+
+## Swagger
+
+Segui o link que o professor fornecer no slide da aula sobre o Swagger. (https://learn.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-8.0&tabs=visual-studio-code)
+
+Resumindo, fiz a instalação do package Swashbuckle.AspNetCore
+
+"dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 6.6.2"
+
+Depois no Program.cs adicionei as seguintes linhas de códigos
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
+Assim, o Swagger já estava a funcionar e já era possivel realizar os testes dos endpoints.
+
+### 23/01/2025 - Eduardo
+
+## Endpoints Disponíveis
+
+### **POST** `/api/reservations`
+
+Cria uma nova reserva no sistema.
+
+- **Método**: POST
+- **Rota**: /api/reservations
+
+#### **Descrição**
+Este endpoint permite criar uma nova reserva fornecendo informações como nome do cliente, data, hora, número de pessoas e número da mesa.
+
+#### **Exemplo de Requisição**
+```http
+POST /api/reservations  
+```
+ 
+#### **Respostas**
+**Sucesso** (`201 Created`):
+```json
+{
+	"id": 1,
+	"customerName": "John Doe",
+	"reservationDate": "2025-01-24T00:00:00",
+	"reservationTime": "19:00:00",
+	"tableNumber": 5,
+	"numberOfPeople": 4,
+	"createdAt": "0001-01-01T00:00:00"
+}
+  ```
+**Erro** (`400 Bad Request`):
+```json
+{  
+    "message": "Invalid reservation data"  
+}  
 ```
 
 ### 23/01/2025 - Guilherme
