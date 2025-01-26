@@ -359,3 +359,7 @@ dotnet build --no-incremental
 dotnet-coverage collect 'dotnet test' -f xml  -o 'coverage.xml'
 dotnet sonarscanner end /d:sonar.login="sqp_4fead643e4ca5a7a6d61bef0e6934428e2d25321"
 ```
+
+## 26/01/2025 - Camila
+
+Realizei algumas alterações no código GetReservations(DateTime? date, string? customerName), pois estava só a filtrar por data. Agora filtra por data e hora da reserva.

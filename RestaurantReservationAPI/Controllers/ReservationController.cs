@@ -16,13 +16,15 @@ namespace RestaurantReservationAPI.Controllers
 
         // GET: api/reservation
         [HttpGet]
-        public IActionResult GetReservations(DateTime? date, string? customerName)
+        public IActionResult GetReservations(DateTime? dateTime, string? customerName)
         {
             var reservations = _context.Reservations.AsQueryable();
 
-            if (date.HasValue)
+            if (dateTime.HasValue)
             {
-                reservations = reservations.Where(r => r.ReservationDate == date.Value.Date);
+                reservations = reservations.Where(r =>
+                    r.ReservationDate == dateTime.Value.Date &&
+                    r.ReservationTime == dateTime.Value.TimeOfDay);
             }
 
             if (!string.IsNullOrEmpty(customerName))
@@ -31,7 +33,6 @@ namespace RestaurantReservationAPI.Controllers
             }
 
             return Ok(reservations.ToArray());
-
         }
 
         // GET: api/reservation/{id}
