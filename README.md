@@ -150,3 +150,7 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 Assim, o Swagger já estava a funcionar e já era possivel realizar os testes dos endpoints.
+
+## 26/01/2025 - Camila
+
+Realizei algumas alterações no código GetReservations(DateTime? date, string? customerName), pois estava só a filtrar por data. Agora filtra por data e hora da reserva.
