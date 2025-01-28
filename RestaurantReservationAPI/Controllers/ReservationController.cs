@@ -89,10 +89,29 @@ namespace RestaurantReservationAPI.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateReservation(int id, [FromBody] Reservation updatedReservation)
         {
+
+            if (updatedReservation.TableNumber < 1 || updatedReservation.TableNumber > TableController.Tables.Count)
+            {
+                return BadRequest("O número da mesa não pode ser maior que o número de mesas existentes.");
+            }
+
             Reservation reservation = _context.Reservations.FirstOrDefault(res => res.Id == id);
             if (reservation == null)
             {
                 return NotFound();
+            }
+
+            var conflictingReservation = _context.Reservations
+            .Where(res => res.TableNumber == updatedReservation.TableNumber
+                          && res.ReservationDate == updatedReservation.ReservationDate
+                          && res.Id != id)
+            .AsEnumerable()
+            .FirstOrDefault(res => Math.Abs((res.ReservationTime - updatedReservation.ReservationTime).TotalMinutes) < 60);
+
+
+            if (conflictingReservation != null)
+            {
+                return BadRequest("A mesa já está reservada em um intervalo de 1 hora para a data solicitada.");
             }
 
             reservation.CustomerName = updatedReservation.CustomerName;
