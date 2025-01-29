@@ -15,6 +15,13 @@ namespace RestaurantReservationAPI.Controllers
         }
 
         // GET: api/reservation
+        [HttpGet]
+        public IActionResult GetReservations()
+        {
+            return Ok(_context.Reservations.ToArray());
+        }
+
+        // GET: api/reservation
         /// <summary>
         /// Obtém todas as reservas filtradas por data e nome do cliente.
         /// </summary>
@@ -40,6 +47,7 @@ namespace RestaurantReservationAPI.Controllers
 
             return Ok(reservations.ToArray());
         }
+        
 
         // GET: api/reservation/{id}
         /// <summary>
