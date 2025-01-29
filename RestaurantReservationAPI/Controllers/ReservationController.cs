@@ -15,6 +15,12 @@ namespace RestaurantReservationAPI.Controllers
         }
 
         // GET: api/reservation
+        /// <summary>
+        /// Obtém todas as reservas filtradas por data e nome do cliente.
+        /// </summary>
+        /// <param name="dateTime">Data da reserva</param>
+        /// <param name="customerName">Nome do cliente</param>
+        /// <returns>Lista de reservas</returns>
         [HttpGet]
         public IActionResult GetReservations(DateTime? dateTime, string? customerName)
         {
@@ -36,6 +42,11 @@ namespace RestaurantReservationAPI.Controllers
         }
 
         // GET: api/reservation/{id}
+        /// <summary>
+        /// Obtém uma reserva específica pelo ID.
+        /// </summary>
+        /// <param name="id">ID da reserva</param>
+        /// <returns>Dados da reserva</returns>
         [HttpGet("{id}")]
         public IActionResult GetReservationById(int id)
         {
@@ -50,6 +61,11 @@ namespace RestaurantReservationAPI.Controllers
         }
 
         // POST: api/reservation
+        /// <summary>
+        /// Cria uma nova reserva.
+        /// </summary>
+        /// <param name="newReservation">Objeto da reserva</param>
+        /// <returns>Dados da reserva criada</returns>
         [HttpPost]
         public IActionResult CreateReservation([FromBody] Reservation newReservation)
         {
@@ -69,6 +85,12 @@ namespace RestaurantReservationAPI.Controllers
         }
 
         // DELETE: api/reservation/{id}
+
+        /// <summary>
+        /// Remove uma reserva pelo ID.
+        /// </summary>
+        /// <param name="id">ID da reserva</param>
+        /// <returns>Mensagem de sucesso</returns>
         [HttpDelete("{id}")]
         public IActionResult DeleteReservation(int id)
         {
@@ -85,7 +107,15 @@ namespace RestaurantReservationAPI.Controllers
             return Ok(new { Message = "Reservation deleted successfully" });
         }
 
+        
         // PUT: api/reservation/{id}
+
+        /// <summary>
+        /// Atualiza uma reserva existente.
+        /// </summary>
+        /// <param name="id">ID da reserva</param>
+        /// <param name="updatedReservation">Dados atualizados da reserva</param>
+        /// <returns>Reserva atualizada</returns>
         [HttpPut("{id}")]
         public IActionResult UpdateReservation(int id, [FromBody] Reservation updatedReservation)
         {

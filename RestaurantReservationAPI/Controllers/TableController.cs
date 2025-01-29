@@ -30,6 +30,10 @@ namespace RestaurantReservationAPI.Controllers
         };
 
         // GET: api/Table
+        /// <summary>
+        /// Retorna todas as mesas disponíveis.
+        /// </summary>
+        /// <returns>Lista de mesas.</returns>
         [HttpGet]
         public IActionResult GetTables()
         {
@@ -37,6 +41,11 @@ namespace RestaurantReservationAPI.Controllers
         }
 
         // GET: api/Tables/{id}
+        /// <summary>
+        /// Retorna uma mesa específica com base no ID.
+        /// </summary>
+        /// <param name="id">ID da mesa.</param>
+        /// <returns>Dados da mesa, se encontrada.</returns>
         [HttpGet("{id}")]
         public IActionResult GetTable(int id)
         {
@@ -50,6 +59,11 @@ namespace RestaurantReservationAPI.Controllers
         }
 
         // POST: api/Tables
+        /// <summary>
+        /// Adiciona uma nova mesa à lista.
+        /// </summary>
+        /// <param name="newTable">Dados da nova mesa.</param>
+        /// <returns>A mesa recém-criada.</returns>
         [HttpPost]
         public IActionResult AddTable([FromBody] Table newTable)
         {
@@ -65,6 +79,11 @@ namespace RestaurantReservationAPI.Controllers
         }
 
         // DELETE: api/Tables/{id}
+        /// <summary>
+        /// Remove uma mesa com base no ID.
+        /// </summary>
+        /// <param name="id">ID da mesa a ser removida.</param>
+        /// <returns>Resposta sem conteúdo, se bem-sucedido.</returns>
         [HttpDelete("{id}")]
         public IActionResult DeleteTable(int id)
         {
