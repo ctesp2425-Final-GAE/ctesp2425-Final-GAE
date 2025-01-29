@@ -74,10 +74,10 @@ namespace RestaurantReservationAPI.Controllers
         /// </summary>
         /// <param name="newReservation">Objeto da reserva</param>
         /// <returns>Dados da reserva criada</returns>
-        [HttpPost]
+       [HttpPost]
         public IActionResult CreateReservation([FromBody] Reservation newReservation)
         {
-            // Validar os dados recebidos
+        // Validar os dados recebidos
             if (newReservation == null || string.IsNullOrWhiteSpace(newReservation.CustomerName) 
                 || newReservation.ReservationDate == default || newReservation.ReservationTime == default
                 || newReservation.TableNumber <= 0 || newReservation.NumberOfPeople <= 0)
@@ -85,11 +85,29 @@ namespace RestaurantReservationAPI.Controllers
                 return BadRequest(new { Message = "Invalid reservation data" });
             }
 
-            // Adicionar a nova reserva à base de dados
-            _context.Reservations.Add(newReservation);
-            _context.SaveChanges();
+        
+            if (newReservation.TableNumber < 1 || newReservation.TableNumber > TableController.Tables.Count)
+            {
+                return BadRequest(new { Message  = "O número da mesa não pode ser maior que o número de mesas existentes."});
+            }
 
-            return CreatedAtAction(nameof(GetReservationById), new { id = newReservation.Id }, newReservation);
+        // Verificar se já existe uma reserva para a mesma mesa no mesmo horário ou dentro de 1 hora
+        var conflictingReservation = _context.Reservations
+        .Where(res => res.TableNumber == newReservation.TableNumber
+                      && res.ReservationDate == newReservation.ReservationDate)
+        .AsEnumerable()
+        .FirstOrDefault(res => Math.Abs((res.ReservationTime - newReservation.ReservationTime).TotalMinutes) < 60);
+
+        if (conflictingReservation != null)
+            {
+                return BadRequest(new { Message = "A mesa já está reservada em um intervalo de 1 hora para a data solicitada." });
+            }
+
+        // Adicionar a nova reserva à base de dados
+         _context.Reservations.Add(newReservation);
+        _context.SaveChanges();
+
+        return CreatedAtAction(nameof(GetReservationById), new { id = newReservation.Id }, newReservation);
         }
 
         // DELETE: api/reservation/{id}
