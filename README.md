@@ -365,3 +365,9 @@ dotnet sonarscanner end /d:sonar.login="sqp_4fead643e4ca5a7a6d61bef0e6934428e2d2
 Realizei algumas alterações no código GetReservations(DateTime? date, string? customerName), pois estava só a filtrar por data. Agora filtra por data e hora da reserva.
 
 Também fiz alterações no UpdateReservation. Coloquei validações para que não consigam editar para colocar uma mesa acima do tanto de mesas existentes. E validação para não conseguir editar para colocar uma mesa na mesma data e horario de outra reserva.
+
+## 29/01/2025 - Camila
+
+Para realizar a documentação tive que adicionar no program.cs a criação da documentação do swagger. E adicionei no RestauranteReservationAPI.csproj para indicar ao compilador que ele deve criar um arquivo XML contendo a documentação.
+
+Depois disso, realizei a documentação no código do Swagger de todos os endpoints que já estavam desenvolvidos. 
