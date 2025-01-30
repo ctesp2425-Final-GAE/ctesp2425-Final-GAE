@@ -143,5 +143,56 @@ namespace RestaurantReservationAPI.Tests
                 Assert.Equal(6, reservation.NumberOfPeople);
             }
         }
+
+
+        [Fact]
+        public void GetReservationById_ReturnsNotFound_WhenReservationDoesNotExist()
+        {
+            var options = GetInMemoryDbContextOptions();
+            using (var context = new ApplicationDbContext(options))
+            {
+                var controller = new ReservationController(context);
+                var result = controller.GetReservationById(999) as NotFoundObjectResult;
+                Assert.NotNull(result);
+            }
+        }
+
+        [Fact]
+        public void CreateReservation_ReturnsBadRequest_WhenInvalidData()
+        {
+            var options = GetInMemoryDbContextOptions();
+            using (var context = new ApplicationDbContext(options))
+            {
+                var controller = new ReservationController(context);
+                var newReservation = new Reservation { CustomerName = "", ReservationDate = default, ReservationTime = default, TableNumber = 0, NumberOfPeople = 0 };
+                var result = controller.CreateReservation(newReservation) as BadRequestObjectResult;
+                Assert.NotNull(result);
+            }
+        }
+
+        [Fact]
+        public void DeleteReservation_ReturnsNotFound_WhenReservationDoesNotExist()
+        {
+            var options = GetInMemoryDbContextOptions();
+            using (var context = new ApplicationDbContext(options))
+            {
+                var controller = new ReservationController(context);
+                var result = controller.DeleteReservation(999) as NotFoundObjectResult;
+                Assert.NotNull(result);
+            }
+        }
+
+        [Fact]
+        public void UpdateReservation_ReturnsNotFound_WhenReservationDoesNotExist()
+        {
+            var options = GetInMemoryDbContextOptions();
+            using (var context = new ApplicationDbContext(options))
+            {
+                var controller = new ReservationController(context);
+                var updatedReservation = new Reservation { CustomerName = "New Name", ReservationDate = DateTime.Today, ReservationTime = new TimeSpan(13, 0, 0), TableNumber = 2, NumberOfPeople = 4 };
+                var result = controller.UpdateReservation(999, updatedReservation) as NotFoundResult;
+                Assert.NotNull(result);
+            }
+        }
     }
 }
