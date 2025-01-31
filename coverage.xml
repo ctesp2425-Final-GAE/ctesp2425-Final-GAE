@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <results>
   <modules>
-    <module id="F6E33956C083AB459A81A7D1E228BEBE5526C7B1" name="RestaurantReservationAPI.Tests.dll" path="RestaurantReservationAPI.Tests.dll" block_coverage="100.00" line_coverage="100.00" blocks_covered="159" blocks_not_covered="0" lines_covered="102" lines_partially_covered="0" lines_not_covered="0">
+    <module id="B68092D714BDA7428EFFF7A2FCE9BCA4E3545ED5" name="RestaurantReservationAPI.Tests.dll" path="RestaurantReservationAPI.Tests.dll" block_coverage="100.00" line_coverage="100.00" blocks_covered="205" blocks_not_covered="0" lines_covered="140" lines_partially_covered="0" lines_not_covered="0">
       <functions>
         <function id="8284" token="0x6000003" name="GetInMemoryDbContextOptions()" namespace="RestaurantReservationAPI.Tests" type_name="ReservationsControllerTests" block_coverage="100.00" line_coverage="100.00" blocks_covered="7" blocks_not_covered="0" lines_covered="5" lines_partially_covered="0" lines_not_covered="0">
           <ranges>
@@ -109,15 +109,69 @@
             <range source_id="0" start_line="145" end_line="145" start_column="9" end_column="10" covered="yes" />
           </ranges>
         </function>
+        <function id="9688" token="0x6000009" name="GetReservationById_ReturnsNotFound_WhenReservationDoesNotExist()" namespace="RestaurantReservationAPI.Tests" type_name="ReservationsControllerTests" block_coverage="100.00" line_coverage="100.00" blocks_covered="8" blocks_not_covered="0" lines_covered="9" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="150" end_line="150" start_column="9" end_column="10" covered="yes" />
+            <range source_id="0" start_line="151" end_line="151" start_column="13" end_column="57" covered="yes" />
+            <range source_id="0" start_line="152" end_line="152" start_column="20" end_column="67" covered="yes" />
+            <range source_id="0" start_line="153" end_line="153" start_column="13" end_column="14" covered="yes" />
+            <range source_id="0" start_line="154" end_line="154" start_column="17" end_column="69" covered="yes" />
+            <range source_id="0" start_line="155" end_line="155" start_column="17" end_column="89" covered="yes" />
+            <range source_id="0" start_line="156" end_line="156" start_column="17" end_column="40" covered="yes" />
+            <range source_id="0" start_line="157" end_line="157" start_column="13" end_column="14" covered="yes" />
+            <range source_id="0" start_line="158" end_line="158" start_column="9" end_column="10" covered="yes" />
+          </ranges>
+        </function>
+        <function id="9780" token="0x600000a" name="CreateReservation_ReturnsBadRequest_WhenInvalidData()" namespace="RestaurantReservationAPI.Tests" type_name="ReservationsControllerTests" block_coverage="100.00" line_coverage="100.00" blocks_covered="14" blocks_not_covered="0" lines_covered="10" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="162" end_line="162" start_column="9" end_column="10" covered="yes" />
+            <range source_id="0" start_line="163" end_line="163" start_column="13" end_column="57" covered="yes" />
+            <range source_id="0" start_line="164" end_line="164" start_column="20" end_column="67" covered="yes" />
+            <range source_id="0" start_line="165" end_line="165" start_column="13" end_column="14" covered="yes" />
+            <range source_id="0" start_line="166" end_line="166" start_column="17" end_column="69" covered="yes" />
+            <range source_id="0" start_line="167" end_line="167" start_column="17" end_column="167" covered="yes" />
+            <range source_id="0" start_line="168" end_line="168" start_column="17" end_column="101" covered="yes" />
+            <range source_id="0" start_line="169" end_line="169" start_column="17" end_column="40" covered="yes" />
+            <range source_id="0" start_line="170" end_line="170" start_column="13" end_column="14" covered="yes" />
+            <range source_id="0" start_line="171" end_line="171" start_column="9" end_column="10" covered="yes" />
+          </ranges>
+        </function>
+        <function id="9936" token="0x600000b" name="DeleteReservation_ReturnsNotFound_WhenReservationDoesNotExist()" namespace="RestaurantReservationAPI.Tests" type_name="ReservationsControllerTests" block_coverage="100.00" line_coverage="100.00" blocks_covered="8" blocks_not_covered="0" lines_covered="9" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="175" end_line="175" start_column="9" end_column="10" covered="yes" />
+            <range source_id="0" start_line="176" end_line="176" start_column="13" end_column="57" covered="yes" />
+            <range source_id="0" start_line="177" end_line="177" start_column="20" end_column="67" covered="yes" />
+            <range source_id="0" start_line="178" end_line="178" start_column="13" end_column="14" covered="yes" />
+            <range source_id="0" start_line="179" end_line="179" start_column="17" end_column="69" covered="yes" />
+            <range source_id="0" start_line="180" end_line="180" start_column="17" end_column="88" covered="yes" />
+            <range source_id="0" start_line="181" end_line="181" start_column="17" end_column="40" covered="yes" />
+            <range source_id="0" start_line="182" end_line="182" start_column="13" end_column="14" covered="yes" />
+            <range source_id="0" start_line="183" end_line="183" start_column="9" end_column="10" covered="yes" />
+          </ranges>
+        </function>
+        <function id="10028" token="0x600000c" name="UpdateReservation_ReturnsNotFound_WhenReservationDoesNotExist()" namespace="RestaurantReservationAPI.Tests" type_name="ReservationsControllerTests" block_coverage="100.00" line_coverage="100.00" blocks_covered="16" blocks_not_covered="0" lines_covered="10" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" start_line="187" end_line="187" start_column="9" end_column="10" covered="yes" />
+            <range source_id="0" start_line="188" end_line="188" start_column="13" end_column="57" covered="yes" />
+            <range source_id="0" start_line="189" end_line="189" start_column="20" end_column="67" covered="yes" />
+            <range source_id="0" start_line="190" end_line="190" start_column="13" end_column="14" covered="yes" />
+            <range source_id="0" start_line="191" end_line="191" start_column="17" end_column="69" covered="yes" />
+            <range source_id="0" start_line="192" end_line="192" start_column="17" end_column="201" covered="yes" />
+            <range source_id="0" start_line="193" end_line="193" start_column="17" end_column="102" covered="yes" />
+            <range source_id="0" start_line="194" end_line="194" start_column="17" end_column="40" covered="yes" />
+            <range source_id="0" start_line="195" end_line="195" start_column="13" end_column="14" covered="yes" />
+            <range source_id="0" start_line="196" end_line="196" start_column="9" end_column="10" covered="yes" />
+          </ranges>
+        </function>
       </functions>
       <source_files>
-        <source_file id="0" path="C:\Users\joses\Documents\projetos\DOTNET\ctesp2425-Final-GAE\RestaurantReservationAPI.Tests\ReservationsControllerTests.cs" checksum_type="SHA256" checksum="247FAE53B76D9EB97B0DFB31AE69157ED3CC55D41BC18F2C3D930592D5BA2597" />
+        <source_file id="0" path="C:\Users\joses\Documents\projetos\DOTNET\ctesp2425-Final-GAE\RestaurantReservationAPI.Tests\ReservationsControllerTests.cs" checksum_type="SHA256" checksum="DF58B04D1257BFCDE90DBE63453B7866EC72971CB3FA49453BE77D98836B226E" />
       </source_files>
       <skipped_functions>
         <skipped_function id="8272" original_id="8272" token="0x6000001" name="Main(string[])" type_name="AutoGeneratedProgram" reason="attribute_excluded" />
       </skipped_functions>
     </module>
-    <module id="4910A88451A4D94FAD3B3532B934708391E59995" name="RestaurantReservationAPI.dll" path="RestaurantReservationAPI.dll" block_coverage="57.80" line_coverage="44.08" blocks_covered="263" blocks_not_covered="192" lines_covered="93" lines_partially_covered="5" lines_not_covered="113">
+    <module id="F3514CBFA13B304BB8846F8E0D8C72303556F9FF" name="RestaurantReservationAPI.dll" path="RestaurantReservationAPI.dll" block_coverage="60.44" line_coverage="49.29" blocks_covered="275" blocks_not_covered="180" lines_covered="104" lines_partially_covered="2" lines_not_covered="105">
       <functions>
         <function id="8822" token="0x6000010" name="ApplicationDbContext(Microsoft.EntityFrameworkCore.DbContextOptions&lt;ApplicationDbContext&gt;)" type_name="ApplicationDbContext" block_coverage="100.00" line_coverage="100.00" blocks_covered="2" blocks_not_covered="0" lines_covered="3" lines_partially_covered="0" lines_not_covered="0">
           <ranges>
@@ -301,23 +355,23 @@
             <range source_id="4" start_line="49" end_line="49" start_column="9" end_column="10" covered="no" />
           </ranges>
         </function>
-        <function id="10008" token="0x600002e" name="GetReservationById(int)" namespace="RestaurantReservationAPI.Controllers" type_name="ReservationController" block_coverage="84.21" line_coverage="71.43" blocks_covered="16" blocks_not_covered="3" lines_covered="5" lines_partially_covered="0" lines_not_covered="2">
+        <function id="10008" token="0x600002e" name="GetReservationById(int)" namespace="RestaurantReservationAPI.Controllers" type_name="ReservationController" block_coverage="100.00" line_coverage="100.00" blocks_covered="19" blocks_not_covered="0" lines_covered="7" lines_partially_covered="0" lines_not_covered="0">
           <ranges>
             <range source_id="4" start_line="60" end_line="60" start_column="9" end_column="10" covered="yes" />
             <range source_id="4" start_line="61" end_line="61" start_column="13" end_column="85" covered="yes" />
             <range source_id="4" start_line="63" end_line="63" start_column="13" end_column="37" covered="yes" />
-            <range source_id="4" start_line="64" end_line="64" start_column="13" end_column="14" covered="no" />
-            <range source_id="4" start_line="65" end_line="65" start_column="17" end_column="76" covered="no" />
+            <range source_id="4" start_line="64" end_line="64" start_column="13" end_column="14" covered="yes" />
+            <range source_id="4" start_line="65" end_line="65" start_column="17" end_column="76" covered="yes" />
             <range source_id="4" start_line="68" end_line="68" start_column="13" end_column="36" covered="yes" />
             <range source_id="4" start_line="69" end_line="69" start_column="9" end_column="10" covered="yes" />
           </ranges>
         </function>
-        <function id="10188" token="0x600002f" name="CreateReservation(RestaurantReservationAPI.Models.Reservation)" namespace="RestaurantReservationAPI.Controllers" type_name="ReservationController" block_coverage="84.06" line_coverage="52.38" blocks_covered="58" blocks_not_covered="11" lines_covered="11" lines_partially_covered="4" lines_not_covered="6">
+        <function id="10188" token="0x600002f" name="CreateReservation(RestaurantReservationAPI.Models.Reservation)" namespace="RestaurantReservationAPI.Controllers" type_name="ReservationController" block_coverage="89.86" line_coverage="76.19" blocks_covered="62" blocks_not_covered="7" lines_covered="16" lines_partially_covered="1" lines_not_covered="4">
           <ranges>
             <range source_id="4" start_line="79" end_line="79" start_column="9" end_column="10" covered="yes" />
-            <range source_id="4" start_line="81" end_line="83" start_column="13" end_column="90" covered="partial" />
-            <range source_id="4" start_line="84" end_line="84" start_column="13" end_column="14" covered="no" />
-            <range source_id="4" start_line="85" end_line="85" start_column="17" end_column="81" covered="no" />
+            <range source_id="4" start_line="81" end_line="83" start_column="13" end_column="90" covered="yes" />
+            <range source_id="4" start_line="84" end_line="84" start_column="13" end_column="14" covered="yes" />
+            <range source_id="4" start_line="85" end_line="85" start_column="17" end_column="81" covered="yes" />
             <range source_id="4" start_line="89" end_line="89" start_column="13" end_column="109" covered="partial" />
             <range source_id="4" start_line="90" end_line="90" start_column="13" end_column="14" covered="no" />
             <range source_id="4" start_line="91" end_line="91" start_column="17" end_column="126" covered="no" />
@@ -331,20 +385,20 @@
             <range source_id="4" start_line="111" end_line="111" start_column="9" end_column="10" covered="yes" />
           </ranges>
         </function>
-        <function id="10788" token="0x6000030" name="DeleteReservation(int)" namespace="RestaurantReservationAPI.Controllers" type_name="ReservationController" block_coverage="86.96" line_coverage="77.78" blocks_covered="20" blocks_not_covered="3" lines_covered="7" lines_partially_covered="0" lines_not_covered="2">
+        <function id="10788" token="0x6000030" name="DeleteReservation(int)" namespace="RestaurantReservationAPI.Controllers" type_name="ReservationController" block_coverage="100.00" line_coverage="100.00" blocks_covered="23" blocks_not_covered="0" lines_covered="9" lines_partially_covered="0" lines_not_covered="0">
           <ranges>
             <range source_id="4" start_line="122" end_line="122" start_column="9" end_column="10" covered="yes" />
             <range source_id="4" start_line="123" end_line="123" start_column="13" end_column="85" covered="yes" />
             <range source_id="4" start_line="125" end_line="125" start_column="13" end_column="37" covered="yes" />
-            <range source_id="4" start_line="126" end_line="126" start_column="13" end_column="14" covered="no" />
-            <range source_id="4" start_line="127" end_line="127" start_column="17" end_column="76" covered="no" />
+            <range source_id="4" start_line="126" end_line="126" start_column="13" end_column="14" covered="yes" />
+            <range source_id="4" start_line="127" end_line="127" start_column="17" end_column="76" covered="yes" />
             <range source_id="4" start_line="130" end_line="130" start_column="13" end_column="55" covered="yes" />
             <range source_id="4" start_line="131" end_line="131" start_column="13" end_column="36" covered="yes" />
             <range source_id="4" start_line="133" end_line="133" start_column="13" end_column="77" covered="yes" />
             <range source_id="4" start_line="134" end_line="134" start_column="9" end_column="10" covered="yes" />
           </ranges>
         </function>
-        <function id="11008" token="0x6000031" name="UpdateReservation(int, RestaurantReservationAPI.Models.Reservation)" namespace="RestaurantReservationAPI.Controllers" type_name="ReservationController" block_coverage="90.91" line_coverage="72.00" blocks_covered="70" blocks_not_covered="7" lines_covered="18" lines_partially_covered="1" lines_not_covered="6">
+        <function id="11008" token="0x6000031" name="UpdateReservation(int, RestaurantReservationAPI.Models.Reservation)" namespace="RestaurantReservationAPI.Controllers" type_name="ReservationController" block_coverage="93.51" line_coverage="80.00" blocks_covered="72" blocks_not_covered="5" lines_covered="20" lines_partially_covered="1" lines_not_covered="4">
           <ranges>
             <range source_id="4" start_line="147" end_line="147" start_column="9" end_column="10" covered="yes" />
             <range source_id="4" start_line="149" end_line="149" start_column="13" end_column="117" covered="partial" />
@@ -352,8 +406,8 @@
             <range source_id="4" start_line="151" end_line="151" start_column="17" end_column="108" covered="no" />
             <range source_id="4" start_line="154" end_line="154" start_column="13" end_column="97" covered="yes" />
             <range source_id="4" start_line="155" end_line="155" start_column="13" end_column="37" covered="yes" />
-            <range source_id="4" start_line="156" end_line="156" start_column="13" end_column="14" covered="no" />
-            <range source_id="4" start_line="157" end_line="157" start_column="17" end_column="35" covered="no" />
+            <range source_id="4" start_line="156" end_line="156" start_column="13" end_column="14" covered="yes" />
+            <range source_id="4" start_line="157" end_line="157" start_column="17" end_column="35" covered="yes" />
             <range source_id="4" start_line="160" end_line="165" start_column="13" end_column="124" covered="yes" />
             <range source_id="4" start_line="168" end_line="168" start_column="13" end_column="48" covered="yes" />
             <range source_id="4" start_line="169" end_line="169" start_column="13" end_column="14" covered="no" />
@@ -499,44 +553,39 @@
     <skipped_module name="system.security.cryptography.dll" path="system.security.cryptography.dll" reason="no_symbols" />
     <skipped_module name="system.diagnostics.diagnosticsource.dll" path="system.diagnostics.diagnosticsource.dll" reason="no_symbols" />
     <skipped_module name="system.memory.dll" path="system.memory.dll" reason="no_symbols" />
-    <skipped_module name="system.net.http.dll" path="system.net.http.dll" reason="no_symbols" />
     <skipped_module name="system.io.memorymappedfiles.dll" path="system.io.memorymappedfiles.dll" reason="no_symbols" />
     <skipped_module name="system.collections.concurrent.dll" path="system.collections.concurrent.dll" reason="no_symbols" />
-    <skipped_module name="system.net.primitives.dll" path="system.net.primitives.dll" reason="no_symbols" />
-    <skipped_module name="system.net.security.dll" path="system.net.security.dll" reason="no_symbols" />
     <skipped_module name="system.xml.xdocument.dll" path="system.xml.xdocument.dll" reason="no_symbols" />
     <skipped_module name="microsoft.build.framework.dll" path="microsoft.build.framework.dll" reason="no_symbols" />
     <skipped_module name="system.private.xml.linq.dll" path="system.private.xml.linq.dll" reason="no_symbols" />
-    <skipped_module name="system.net.requests.dll" path="system.net.requests.dll" reason="no_symbols" />
     <skipped_module name="microsoft.dotnet.templatelocator.dll" path="microsoft.dotnet.templatelocator.dll" reason="no_symbols" />
     <skipped_module name="system.threading.thread.dll" path="system.threading.thread.dll" reason="no_symbols" />
-    <skipped_module name="system.net.networkinformation.dll" path="system.net.networkinformation.dll" reason="no_symbols" />
     <skipped_module name="msbuild.dll" path="msbuild.dll" reason="no_symbols" />
     <skipped_module name="microsoft.deployment.dotnet.releases.dll" path="microsoft.deployment.dotnet.releases.dll" reason="no_symbols" />
     <skipped_module name="system.xml.readerwriter.dll" path="system.xml.readerwriter.dll" reason="no_symbols" />
     <skipped_module name="microsoft.build.dll" path="microsoft.build.dll" reason="no_symbols" />
-    <skipped_module name="system.private.xml.dll" path="system.private.xml.dll" reason="no_symbols" />
     <skipped_module name="system.text.json.dll" path="system.text.json.dll" reason="no_symbols" />
+    <skipped_module name="system.private.xml.dll" path="system.private.xml.dll" reason="no_symbols" />
     <skipped_module name="microsoft.win32.registry.dll" path="microsoft.win32.registry.dll" reason="no_symbols" />
     <skipped_module name="system.text.regularexpressions.dll" path="system.text.regularexpressions.dll" reason="no_symbols" />
-    <skipped_module name="system.net.nameresolution.dll" path="system.net.nameresolution.dll" reason="no_symbols" />
-    <skipped_module name="system.runtime.intrinsics.dll" path="system.runtime.intrinsics.dll" reason="no_symbols" />
-    <skipped_module name="system.io.compression.dll" path="system.io.compression.dll" reason="no_symbols" />
+    <skipped_module name="system.net.networkinformation.dll" path="system.net.networkinformation.dll" reason="no_symbols" />
     <skipped_module name="system.runtime.loader.dll" path="system.runtime.loader.dll" reason="no_symbols" />
+    <skipped_module name="system.net.nameresolution.dll" path="system.net.nameresolution.dll" reason="no_symbols" />
+    <skipped_module name="system.net.primitives.dll" path="system.net.primitives.dll" reason="no_symbols" />
     <skipped_module name="system.collections.immutable.dll" path="system.collections.immutable.dll" reason="no_symbols" />
     <skipped_module name="nuget.credentials.dll" path="nuget.credentials.dll" reason="no_symbols" />
+    <skipped_module name="system.io.compression.dll" path="system.io.compression.dll" reason="no_symbols" />
     <skipped_module name="system.diagnostics.fileversioninfo.dll" path="system.diagnostics.fileversioninfo.dll" reason="no_symbols" />
     <skipped_module name="system.serviceprocess.servicecontroller.dll" path="system.serviceprocess.servicecontroller.dll" reason="no_symbols" />
+    <skipped_module name="system.net.http.dll" path="system.net.http.dll" reason="no_symbols" />
     <skipped_module name="system.security.principal.windows.dll" path="system.security.principal.windows.dll" reason="no_symbols" />
     <skipped_module name="system.security.claims.dll" path="system.security.claims.dll" reason="no_symbols" />
+    <skipped_module name="system.net.security.dll" path="system.net.security.dll" reason="no_symbols" />
     <skipped_module name="system.collections.nongeneric.dll" path="system.collections.nongeneric.dll" reason="no_symbols" />
     <skipped_module name="system.threading.tasks.dataflow.dll" path="system.threading.tasks.dataflow.dll" reason="no_symbols" />
-    <skipped_module name="system.threading.threadpool.dll" path="system.threading.threadpool.dll" reason="no_symbols" />
     <skipped_module name="system.reflection.emit.lightweight.dll" path="system.reflection.emit.lightweight.dll" reason="no_symbols" />
     <skipped_module name="system.reflection.emit.ilgeneration.dll" path="system.reflection.emit.ilgeneration.dll" reason="no_symbols" />
-    <skipped_module name="system.net.sockets.dll" path="system.net.sockets.dll" reason="no_symbols" />
     <skipped_module name="system.reflection.primitives.dll" path="system.reflection.primitives.dll" reason="no_symbols" />
-    <skipped_module name="system.threading.overlapped.dll" path="system.threading.overlapped.dll" reason="no_symbols" />
     <skipped_module name="microsoft.net.stringtools.dll" path="microsoft.net.stringtools.dll" reason="no_symbols" />
     <skipped_module name="system.threading.tasks.parallel.dll" path="system.threading.tasks.parallel.dll" reason="no_symbols" />
     <skipped_module name="system.numerics.vectors.dll" path="system.numerics.vectors.dll" reason="no_symbols" />
@@ -546,8 +595,10 @@
     <skipped_module name="system.reflection.metadata.dll" path="system.reflection.metadata.dll" reason="no_symbols" />
     <skipped_module name="nuget.commands.dll" path="nuget.commands.dll" reason="no_symbols" />
     <skipped_module name="nuget.projectmodel.dll" path="nuget.projectmodel.dll" reason="no_symbols" />
+    <skipped_module name="system.threading.threadpool.dll" path="system.threading.threadpool.dll" reason="no_symbols" />
     <skipped_module name="nuget.frameworks.dll" path="nuget.frameworks.dll" reason="no_symbols" />
     <skipped_module name="system.io.pipes.dll" path="system.io.pipes.dll" reason="no_symbols" />
+    <skipped_module name="system.threading.overlapped.dll" path="system.threading.overlapped.dll" reason="no_symbols" />
     <skipped_module name="system.security.accesscontrol.dll" path="system.security.accesscontrol.dll" reason="no_symbols" />
     <skipped_module name="microsoft.build.nugetsdkresolver.dll" path="microsoft.build.nugetsdkresolver.dll" reason="no_symbols" />
     <skipped_module name="microsoft.net.sdk.workloadmsbuildsdkresolver.dll" path="microsoft.net.sdk.workloadmsbuildsdkresolver.dll" reason="no_symbols" />
@@ -582,9 +633,12 @@
     <skipped_module name="system.diagnostics.tracesource.dll" path="system.diagnostics.tracesource.dll" reason="no_symbols" />
     <skipped_module name="system.collections.specialized.dll" path="system.collections.specialized.dll" reason="no_symbols" />
     <skipped_module name="system.reflection.emit.dll" path="system.reflection.emit.dll" reason="no_symbols" />
+    <skipped_module name="system.net.requests.dll" path="system.net.requests.dll" reason="no_symbols" />
+    <skipped_module name="system.runtime.intrinsics.dll" path="system.runtime.intrinsics.dll" reason="no_symbols" />
     <skipped_module name="microsoft.net.hostmodel.dll" path="microsoft.net.hostmodel.dll" reason="no_symbols" />
     <skipped_module name="system.text.encodings.web.dll" path="system.text.encodings.web.dll" reason="no_symbols" />
     <skipped_module name="system.io.pipelines.dll" path="system.io.pipelines.dll" reason="no_symbols" />
+    <skipped_module name="system.net.sockets.dll" path="system.net.sockets.dll" reason="no_symbols" />
     <skipped_module name="vstest.console.dll" path="vstest.console.dll" reason="path_is_excluded" />
     <skipped_module name="microsoft.testplatform.coreutilities.dll" path="microsoft.testplatform.coreutilities.dll" reason="path_is_excluded" />
     <skipped_module name="system.runtime.extensions.dll" path="system.runtime.extensions.dll" reason="no_symbols" />
