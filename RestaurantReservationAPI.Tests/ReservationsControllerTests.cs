@@ -22,7 +22,6 @@ namespace RestaurantReservationAPI.Tests
         [Fact]
         public void GetReservations_ReturnsAllReservations()
         {
-            // Arrange
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()
                 .UseInMemoryDatabase(databaseName: "TestDatabase")
                 .Options;
@@ -56,10 +55,8 @@ namespace RestaurantReservationAPI.Tests
             {
                 var controller = new ReservationController(context);
 
-                // Act
                 var result = controller.GetReservations() as OkObjectResult;
 
-                // Assert
                 Assert.NotNull(result);
                 var reservations = Assert.IsType<Reservation[]>(result.Value);
 
@@ -192,6 +189,148 @@ namespace RestaurantReservationAPI.Tests
                 var updatedReservation = new Reservation { CustomerName = "New Name", ReservationDate = DateTime.Today, ReservationTime = new TimeSpan(13, 0, 0), TableNumber = 2, NumberOfPeople = 4 };
                 var result = controller.UpdateReservation(999, updatedReservation) as NotFoundResult;
                 Assert.NotNull(result);
+            }
+        }
+
+        [Fact]
+        public void GetReservations_FiltersByDateAndCustomerName()
+        {
+            var options = GetInMemoryDbContextOptions();
+            using (var context = new ApplicationDbContext(options))
+            {
+                context.Reservations.Add(new Reservation
+                {
+                    Id = 1,
+                    CustomerName = "John Doe",
+                    ReservationDate = DateTime.Today,
+                    ReservationTime = new TimeSpan(12, 0, 0), 
+                    TableNumber = 1,
+                    NumberOfPeople = 4
+                });
+
+                context.Reservations.Add(new Reservation
+                {
+                    Id = 2,
+                    CustomerName = "Jane Smith",
+                    ReservationDate = DateTime.Today.AddDays(1),
+                    ReservationTime = new TimeSpan(18, 0, 0),
+                    TableNumber = 2,
+                    NumberOfPeople = 2
+                });
+
+                context.Reservations.Add(new Reservation
+                {
+                    Id = 3,
+                    CustomerName = "John Doe",
+                    ReservationDate = DateTime.Today.AddDays(2),
+                    ReservationTime = new TimeSpan(19, 0, 0),
+                    TableNumber = 3,
+                    NumberOfPeople = 6
+                });
+
+                context.SaveChanges();
+            }
+
+            using (var context = new ApplicationDbContext(options))
+            {
+                var controller = new ReservationController(context);
+
+                var result = controller.GetReservations(DateTime.Today.AddHours(12), "John Doe") as OkObjectResult;
+
+                Assert.NotNull(result);
+                var reservations = Assert.IsType<Reservation[]>(result.Value);
+
+                Assert.Single(reservations);
+                Assert.Equal("John Doe", reservations[0].CustomerName);
+                Assert.Equal(DateTime.Today, reservations[0].ReservationDate);
+                Assert.Equal(new TimeSpan(12, 0, 0), reservations[0].ReservationTime); 
+            }
+        }
+
+
+        [Fact]
+        public void GetReservations_FiltersByCustomerNameOnly()
+        {
+            var options = GetInMemoryDbContextOptions();
+            using (var context = new ApplicationDbContext(options))
+            {
+                context.Reservations.Add(new Reservation
+                {
+                    Id = 1,
+                    CustomerName = "John Doe",
+                    ReservationDate = DateTime.Today,
+                    ReservationTime = new TimeSpan(12, 0, 0),
+                    TableNumber = 1,
+                    NumberOfPeople = 4
+                });
+
+                context.Reservations.Add(new Reservation
+                {
+                    Id = 2,
+                    CustomerName = "Jane Smith",
+                    ReservationDate = DateTime.Today.AddDays(1),
+                    ReservationTime = new TimeSpan(18, 0, 0),
+                    TableNumber = 2,
+                    NumberOfPeople = 2
+                });
+
+                context.SaveChanges();
+            }
+
+            using (var context = new ApplicationDbContext(options))
+            {
+                var controller = new ReservationController(context);
+
+                var result = controller.GetReservations(null, "Jane Smith") as OkObjectResult;
+
+                Assert.NotNull(result);
+                var reservations = Assert.IsType<Reservation[]>(result.Value);
+
+                Assert.Single(reservations);
+                Assert.Equal("Jane Smith", reservations[0].CustomerName);
+                Assert.Equal(DateTime.Today.AddDays(1), reservations[0].ReservationDate);
+            }
+        }
+
+        [Fact]
+        public void GetReservations_ReturnsAllReservations_WhenNoFiltersApplied()
+        {
+            var options = GetInMemoryDbContextOptions();
+            using (var context = new ApplicationDbContext(options))
+            {
+                context.Reservations.Add(new Reservation
+                {
+                    Id = 1,
+                    CustomerName = "John Doe",
+                    ReservationDate = DateTime.Today,
+                    ReservationTime = new TimeSpan(12, 0, 0),
+                    TableNumber = 1,
+                    NumberOfPeople = 4
+                });
+
+                context.Reservations.Add(new Reservation
+                {
+                    Id = 2,
+                    CustomerName = "Jane Smith",
+                    ReservationDate = DateTime.Today.AddDays(1),
+                    ReservationTime = new TimeSpan(18, 0, 0),
+                    TableNumber = 2,
+                    NumberOfPeople = 2
+                });
+
+                context.SaveChanges();
+            }
+
+            using (var context = new ApplicationDbContext(options))
+            {
+                var controller = new ReservationController(context);
+
+                var result = controller.GetReservations(null, null) as OkObjectResult;
+
+                Assert.NotNull(result);
+                var reservations = Assert.IsType<Reservation[]>(result.Value);
+
+                Assert.Equal(2, reservations.Length);
             }
         }
     }
