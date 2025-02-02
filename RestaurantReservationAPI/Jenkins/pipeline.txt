@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Fazendo o checkout do código...'
+                git branch: 'master', url: 'https://github.com/ctesp2425-Final-GAE/ctesp2425-Final-GAE.git'
+            }
+        }
+
+        stage('Restore') {
+            steps {
+                echo 'Restaurando dependências do projeto...'
+                sh 'dotnet restore ./RestaurantReservationAPI/'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Construindo o projeto...'
+                sh 'dotnet build ./RestaurantReservationAPI/ --configuration Release'
+            }
+        }
+
+        stage('Publish') {
+            steps {
+                echo 'Publicando a aplicação...'
+                sh 'dotnet publish ./RestaurantReservationAPI/ --configuration Release --output ./RestaurantReservationAPI/publish'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline executado com sucesso!'
+        }
+        failure {
+            echo 'Falha durante a execução do pipeline.'
+        }
+    }
+}
