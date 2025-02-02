@@ -371,3 +371,264 @@ Também fiz alterações no UpdateReservation. Coloquei validações para que n�
 Para realizar a documentação tive que adicionar no program.cs a criação da documentação do swagger. E adicionei no RestauranteReservationAPI.csproj para indicar ao compilador que ele deve criar um arquivo XML contendo a documentação.
 
 Depois disso, realizei a documentação no código do Swagger de todos os endpoints que já estavam desenvolvidos. 
+
+
+
+### 01/02/2025 - Eduardo e Mariana
+
+**Testes Unitários**
+
+## GetReservations_ReturnsAllReservations
+
+Verifica se todas as reservas são retornadas corretamente.
+
+## Método: GET
+
+Descrição: Testa a recuperação de todas as reservas presentes na base de dados.
+
+## Exemplo de Requisição
+
+var result = controller.GetReservations() as OkObjectResult;
+
+## Respostas
+
+Sucesso (200 OK):
+
+```json
+
+  {
+    "id": 1,
+    "customerName": "John Doe",
+    "reservationDate": "2025-02-01",
+    "reservationTime": "12:00:00",
+    "tableNumber": 1,
+    "numberOfPeople": 4
+  },
+  {
+    "id": 2,
+    "customerName": "Jane Smith",
+    "reservationDate": "2025-02-02",
+    "reservationTime": "18:00:00",
+    "tableNumber": 2,
+    "numberOfPeople": 2
+  }
+  ```
+
+## GetReservationById_ReturnsCorrectReservation
+
+Verifica se uma reserva específica é retornada pelo ID.
+
+## Método: GET
+
+Descrição: Testa a recuperação de uma reserva usando o ID.
+
+## Exemplo de Requisição
+
+var result = controller.GetReservationById(1) as OkObjectResult;
+
+## Respostas
+
+Sucesso (200 OK):
+
+```json
+
+{
+  "id": 1,
+  "customerName": "John Doe",
+  "reservationDate": "2025-02-01",
+  "reservationTime": "12:00:00",
+  "tableNumber": 1,
+  "numberOfPeople": 4
+}
+
+Erro (404 Not Found):
+{
+  "message": "Reservation not found"
+}
+```
+
+## CreateReservation_AddsReservation
+
+Verifica se uma nova reserva é criada com sucesso.
+
+## Método: POST
+
+Descrição: Testa a adição de uma nova reserva.
+
+## Exemplo de Requisição
+
+var result = controller.CreateReservation(newReservation) as CreatedAtActionResult;
+
+## Respostas
+
+Sucesso (201 Created):
+
+```json
+
+{
+  "id": 3,
+  "customerName": "Alice Brown",
+  "reservationDate": "2025-02-01",
+  "reservationTime": "19:00:00",
+  "tableNumber": 3,
+  "numberOfPeople": 5
+}
+
+Erro (400 Bad Request):
+{
+  "message": "Invalid reservation data"
+}
+```
+
+## DeleteReservation_RemovesReservation
+
+Verifica se uma reserva é removida com sucesso.
+
+## Método: DELETE
+
+Descrição: Testa a exclusão de uma reserva existente.
+
+## Exemplo de Requisição
+
+var result = controller.DeleteReservation(1) as OkObjectResult;
+
+## Respostas
+
+Sucesso (200 OK):
+
+```json
+
+{
+  "message": "Reservation deleted successfully"
+}
+
+Erro (404 Not Found):
+{
+  "message": "Reservation not found"
+}
+```
+
+## UpdateReservation_UpdatesReservationDetails
+
+Verifica se uma reserva é atualizada corretamente.
+
+## Método: PUT
+
+Descrição: Testa a atualização de informações de uma reserva.
+
+## Exemplo de Requisição
+
+var result = controller.UpdateReservation(1, updatedReservation) as OkObjectResult;
+
+## Respostas
+
+Sucesso (200 OK):
+
+```json
+
+{
+  "id": 1,
+  "customerName": "John Doe Updated",
+  "reservationDate": "2025-02-01",
+  "reservationTime": "13:00:00",
+  "tableNumber": 2,
+  "numberOfPeople": 6
+}
+
+Erro (404 Not Found):
+{
+  "message": "Reservation not found"
+}
+```
+
+## GetReservations_FiltersByDateAndCustomerName
+
+Verifica se o filtro por data e nome do cliente funciona corretamente.
+
+## Método: GET
+
+Descrição: Testa a filtragem de reservas com base na data e no nome do cliente.
+
+## Exemplo de Requisição
+
+var result = controller.GetReservations(DateTime.Today.AddHours(12), "John Doe") as OkObjectResult;
+
+## Respostas
+
+Sucesso (200 OK):
+
+```json
+
+  {
+    "id": 1,
+    "customerName": "John Doe",
+    "reservationDate": "2025-02-01",
+    "reservationTime": "12:00:00",
+    "tableNumber": 1,
+    "numberOfPeople": 4
+  }
+  ```
+
+## GetReservations_FiltersByCustomerNameOnly
+
+Verifica se a filtragem de reservas funciona corretamente com base apenas no nome do cliente.
+
+## Método: GET
+
+Descrição Testa a recuperação de reservas filtradas somente pelo nome do cliente.
+
+## Exemplo de Requisição
+
+var result = controller.GetReservations(null, "Jane Smith") as OkObjectResult;
+
+## Respostas
+
+Sucesso (200 OK):
+
+```json
+
+  {
+    "id": 2,
+    "customerName": "Jane Smith",
+    "reservationDate": "2025-02-02",
+    "reservationTime": "18:00:00",
+    "tableNumber": 2,
+    "numberOfPeople": 2
+  }
+  ```
+
+## GetReservations_ReturnsAllReservations_WhenNoFiltersApplied
+
+Verifica se todas as reservas são retornadas corretamente quando nenhum filtro é aplicado.
+
+## Método: GET
+
+Descrição: Testa a recuperação de todas as reservas sem filtros de data ou nome de cliente.
+
+## Exemplo de Requisição
+
+var result = controller.GetReservations(null, null) as OkObjectResult;
+
+## Respostas
+
+Sucesso (200 OK):
+
+```json
+
+  {
+    "id": 1,
+    "customerName": "John Doe",
+    "reservationDate": "2025-02-01",
+    "reservationTime": "12:00:00",
+    "tableNumber": 1,
+    "numberOfPeople": 4
+  },
+  {
+    "id": 2,
+    "customerName": "Jane Smith",
+    "reservationDate": "2025-02-02",
+    "reservationTime": "18:00:00",
+    "tableNumber": 2,
+    "numberOfPeople": 2
+  }
+  ```

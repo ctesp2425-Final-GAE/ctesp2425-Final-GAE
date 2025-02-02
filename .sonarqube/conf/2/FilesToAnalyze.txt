@@ -1,8 +1,5 @@
 ﻿C:\Users\joses\Documents\projetos\DOTNET\ctesp2425-Final-GAE\RestaurantReservationAPI\Controllers\ReservationController.cs
 C:\Users\joses\Documents\projetos\DOTNET\ctesp2425-Final-GAE\RestaurantReservationAPI\Controllers\TableController.cs
-C:\Users\joses\Documents\projetos\DOTNET\ctesp2425-Final-GAE\RestaurantReservationAPI\Migrations\20250121205118_initalMigrate.cs
-C:\Users\joses\Documents\projetos\DOTNET\ctesp2425-Final-GAE\RestaurantReservationAPI\Migrations\20250121205118_initalMigrate.Designer.cs
-C:\Users\joses\Documents\projetos\DOTNET\ctesp2425-Final-GAE\RestaurantReservationAPI\Migrations\ApplicationDbContextModelSnapshot.cs
 C:\Users\joses\Documents\projetos\DOTNET\ctesp2425-Final-GAE\RestaurantReservationAPI\Models\ApplicationDbContext.cs
 C:\Users\joses\Documents\projetos\DOTNET\ctesp2425-Final-GAE\RestaurantReservationAPI\Models\Reservation.cs
 C:\Users\joses\Documents\projetos\DOTNET\ctesp2425-Final-GAE\RestaurantReservationAPI\Models\Table.cs
