@@ -43,7 +43,7 @@ Aqui está uma lista de tarefas divididas para o projeto de acordo com os requis
 ### **Virtualização e Containerização**
 6. **Configuração do Ambiente** - Guilherme **FEITO**
    - Criar um **Dockerfile** para a API. - Guilherme **FEITO**
-   - Configurar comunicação entre API e banco de dados:
+   - Configurar comunicação entre API e base de dados:
      - Via container Docker. - Guilherme **FEITO**
 
 
@@ -632,3 +632,37 @@ Sucesso (200 OK):
     "numberOfPeople": 2
   }
   ```
+
+### Desafios Enfrentados
+**Cobertura de Testes Unitários (80%)**
+
+Foi difícil atingir os 80% de cobertura exigidos, especialmente para validações de conflitos e integração com a base de dados.
+
+**Compreensão do Código por Todos os Membros**
+
+Algumas partes do código não estavam bem documentadas, o que dificultou a colaboração.
+
+Algumas implementações (como a lógica de conflitos de reservas) foram complexas para alguns membros.
+
+**Conflito de Rotas no GET /reservations**
+
+Existiam dois métodos GET com assinaturas diferentes, o que gerou conflitos na API.
+
+**SonarQube**
+
+Dificuldades em configurar a análise de cobertura de código e garantir que os testes eram executados automaticamente no Jenkins.
+
+### Possíveis Melhorias
+Aprimorar a Escrita de Testes Unitários
+
+Criar um guia interno sobre boas práticas de testes para facilitar a compreensão.
+
+Melhorar a Documentação do Código
+
+Adicionar mais comentários explicativos nas partes críticas do código.
+
+Diferenciar os métodos alterando um deles para GET /reservations/search para evitar conflitos.
+
+Refinar Validações no Backend
+
+Otimizar a Integração com Jenkins e SonarQube
