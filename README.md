@@ -636,7 +636,8 @@ Sucesso (200 OK):
 ### Desafios Enfrentados
 **Cobertura de Testes Unitários (80%)**
 
-Foi difícil atingir os 80% de cobertura exigidos, especialmente para validações de conflitos e integração com a base de dados.
+Foi difícil alcançar os 80% de cobertura exigidos, especialmente nas validações de conflitos e na integração com a base de dados. 
+No entanto, atingimos 73%, um valor razoável acordado previamente com o professor.
 
 **Compreensão do Código por Todos os Membros**
 
